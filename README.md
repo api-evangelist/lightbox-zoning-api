@@ -45,7 +45,7 @@ Parcel-level zoning data including districts, allowed uses, setbacks, floor area
 
 - [Documentation](https://developer.lightboxre.com/api/zoning)
 - [Portal](https://developer.lightboxre.com/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/lightbox-zoning-api/refs/heads/main/apis/lightbox-zoning-api-openapi.yml)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/lightbox-zoning-api/refs/heads/main/openapi/lightbox-zoning-api-openapi.yml)
 
 ## Maintainers
 
