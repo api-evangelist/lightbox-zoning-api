@@ -1,0 +1,154 @@
+openapi: 3.0.3
+info:
+  title: LightBox Zoning API
+  description: >-
+    Parcel-level zoning data for commercial real estate, builder, and
+    developer markets. Returns zoning districts, allowed uses, setback
+    requirements, floor area ratio (FAR), building height limits, and
+    other zoning attributes for a given parcel or location.
+  version: v1
+  contact:
+    name: LightBox
+    url: https://developer.lightboxre.com/api/zoning
+servers:
+  - url: https://api.lightboxre.com/v1
+    description: Production
+security:
+  - apiKeyAuth: []
+tags:
+  - name: Zoning
+    description: Zoning lookups by parcel, address, or geometry
+paths:
+  /zoning/us/parcel/{parcelId}:
+    get:
+      tags:
+        - Zoning
+      summary: Get zoning by parcel ID
+      operationId: getZoningByParcel
+      parameters:
+        - in: path
+          name: parcelId
+          required: true
+          schema:
+            type: string
+          description: LightBox parcel identifier
+      responses:
+        '200':
+          description: Zoning attributes for the parcel
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZoningResponse'
+  /zoning/us/address:
+    get:
+      tags:
+        - Zoning
+      summary: Get zoning by address
+      operationId: getZoningByAddress
+      parameters:
+        - in: query
+          name: address
+          required: true
+          schema:
+            type: string
+          description: Full street address
+      responses:
+        '200':
+          description: Zoning attributes for the address
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZoningResponse'
+  /zoning/us/geometry:
+    post:
+      tags:
+        - Zoning
+      summary: Get zoning by geometry
+      operationId: getZoningByGeometry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeometryRequest'
+      responses:
+        '200':
+          description: Zoning attributes for the supplied geometry
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZoningResponse'
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+  schemas:
+    ZoningRecord:
+      type: object
+      properties:
+        zoneCode:
+          type: string
+        zoneDescription:
+          type: string
+        zoneType:
+          type: string
+        zoneSubType:
+          type: string
+        municipality:
+          type: string
+        county:
+          type: string
+        state:
+          type: string
+        allowedUses:
+          type: array
+          items:
+            type: string
+        setbacks:
+          type: object
+          properties:
+            front:
+              type: number
+            rear:
+              type: number
+            side:
+              type: number
+        floorAreaRatio:
+          type: number
+        maxBuildingHeight:
+          type: number
+        maxLotCoverage:
+          type: number
+        minLotSize:
+          type: number
+    ZoningResponse:
+      type: object
+      properties:
+        parcelId:
+          type: string
+        address:
+          type: string
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZoningRecord'
+    GeometryRequest:
+      type: object
+      required:
+        - geometry
+      properties:
+        geometry:
+          type: object
+          description: GeoJSON geometry (Point, Polygon, or MultiPolygon)
+          properties:
+            type:
+              type: string
+              enum:
+                - Point
+                - Polygon
+                - MultiPolygon
+            coordinates:
+              type: array
+              items: {}

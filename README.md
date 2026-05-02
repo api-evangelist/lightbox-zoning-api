@@ -1,38 +1,51 @@
 # LightBox Zoning API (lightbox-zoning-api)
-Zoning data is a critical piece of decision making for the CRE and builder/developer markets, giving insights into what a property is zoned for, zoning districts, setback requirements, floor area ration (FAR), building height, and more. This data when coupled with SmartFabric offers a customer a more robust view of parcels without the time consuming, costly, and tedious collection of zoning information; and may even serve to bring this part of their workflow in-house (many companies will outsource this data collection to companies like PZR). 
+
+Zoning data is a critical piece of decision making for the CRE and builder/developer markets, giving insights into what a property is zoned for, zoning districts, setback requirements, floor area ratio (FAR), building height limits, allowed uses, and more. Part of the LightBox property and location intelligence platform.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/lightbox-zoning-api/refs/heads/main/apis.yml)
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
 
-## Tags:
+## Tags
 
- - API
+- Zoning
+- Real Estate
+- CRE
+- Property
+- Parcels
+- Geospatial
+- Land Use
 
 ## Timestamps
 
-- **Created:** 2025-01-07 
-- **Modified:** 2026-03-16 
+- **Created:** 2025-01-07
+- **Modified:** 2026-04-28
 
 ## APIs
 
 ### LightBox Zoning API
-Zoning data is a critical piece of decision making for the CRE and builder/developer markets, giving insights into what a property is zoned for, zoning districts, setback requirements, floor area ration (FAR), building height, and more. This data when coupled with SmartFabric offers a customer a more robust view of parcels without the time consuming, costly, and tedious collection of zoning information; and may even serve to bring this part of their workflow in-house (many companies will outsource this data collection to companies like PZR). 
 
-**Human URL:** [ https://developer.lightboxre.com/api/zoning]( https://developer.lightboxre.com/api/zoning)
+Parcel-level zoning data including districts, allowed uses, setbacks, floor area ratio (FAR), building height limits, and other zoning attributes by parcel ID, address, or geometry.
 
+**Human URL:** [https://developer.lightboxre.com/api/zoning](https://developer.lightboxre.com/api/zoning)
 
-#### Tags:
+**Base URL:** `https://api.lightboxre.com/v1`
 
- - API
+#### Tags
+
+- Zoning
+- Parcels
+- Real Estate
 
 #### Properties
 
-- [Documentation]( https://developer.lightboxre.com/api/zoning)
+- [Documentation](https://developer.lightboxre.com/api/zoning)
+- [Portal](https://developer.lightboxre.com/)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/lightbox-zoning-api/refs/heads/main/apis/lightbox-zoning-api-openapi.yml)
 
 ## Maintainers
 
