@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LightBox Zoning API
+  description: Parcel-level zoning data for commercial real estate, builder, and developer markets. Returns zoning districts,
+    allowed uses, setback requirements, floor area ratio (FAR), building height limits, and other zoning attributes for a
+    given parcel or location.
+  tags:
+  - Lightbox
+  - Zoning
+  - Api
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: lightbox-zoning-api
+    baseUri: https://api.lightboxre.com/v1
+    description: LightBox Zoning API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: x-api-key
+      value: '{{LIGHTBOX_ZONING_API_TOKEN}}'
+    resources:
+    - name: zoning-us-parcel-parcelid
+      path: /zoning/us/parcel/{parcelId}
+      operations:
+      - name: getzoningbyparcel
+        method: GET
+        description: Get zoning by parcel ID
+        inputParameters:
+        - name: parcelId
+          in: path
+          type: string
+          required: true
+          description: LightBox parcel identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: zoning-us-address
+      path: /zoning/us/address
+      operations:
+      - name: getzoningbyaddress
+        method: GET
+        description: Get zoning by address
+        inputParameters:
+        - name: address
+          in: query
+          type: string
+          required: true
+          description: Full street address
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: zoning-us-geometry
+      path: /zoning/us/geometry
+      operations:
+      - name: getzoningbygeometry
+        method: POST
+        description: Get zoning by geometry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: lightbox-zoning-api-rest
+    description: REST adapter for LightBox Zoning API.
+    resources:
+    - path: /zoning/us/parcel/{parcelId}
+      name: getzoningbyparcel
+      operations:
+      - method: GET
+        name: getzoningbyparcel
+        description: Get zoning by parcel ID
+        call: lightbox-zoning-api.getzoningbyparcel
+        with:
+          parcelId: rest.parcelId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /zoning/us/address
+      name: getzoningbyaddress
+      operations:
+      - method: GET
+        name: getzoningbyaddress
+        description: Get zoning by address
+        call: lightbox-zoning-api.getzoningbyaddress
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /zoning/us/geometry
+      name: getzoningbygeometry
+      operations:
+      - method: POST
+        name: getzoningbygeometry
+        description: Get zoning by geometry
+        call: lightbox-zoning-api.getzoningbygeometry
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: lightbox-zoning-api-mcp
+    transport: http
+    description: MCP adapter for LightBox Zoning API for AI agent use.
+    tools:
+    - name: getzoningbyparcel
+      description: Get zoning by parcel ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lightbox-zoning-api.getzoningbyparcel
+      with:
+        parcelId: tools.parcelId
+      inputParameters:
+      - name: parcelId
+        type: string
+        description: LightBox parcel identifier
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getzoningbyaddress
+      description: Get zoning by address
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: lightbox-zoning-api.getzoningbyaddress
+      with:
+        address: tools.address
+      inputParameters:
+      - name: address
+        type: string
+        description: Full street address
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getzoningbygeometry
+      description: Get zoning by geometry
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: lightbox-zoning-api.getzoningbygeometry
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    LIGHTBOX_ZONING_API_TOKEN: LIGHTBOX_ZONING_API_TOKEN
