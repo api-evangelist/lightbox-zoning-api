@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LightBox Zoning API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Zoning",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get zoning by parcel ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lightboxre.com/v1/zoning/us/parcel/:parcelId",
+            "params": [
+              {
+                "name": "parcelId",
+                "value": "",
+                "type": "path",
+                "description": "LightBox parcel identifier"
+              }
+            ]
+          },
+          "docs": "Get zoning by parcel ID"
+        },
+        {
+          "info": {
+            "name": "Get zoning by address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.lightboxre.com/v1/zoning/us/address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Full street address"
+              }
+            ]
+          },
+          "docs": "Get zoning by address"
+        },
+        {
+          "info": {
+            "name": "Get zoning by geometry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.lightboxre.com/v1/zoning/us/geometry",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get zoning by geometry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

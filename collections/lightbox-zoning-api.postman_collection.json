@@ -1,0 +1,337 @@
+{
+  "item": [
+    {
+      "id": "e156864a-a618-4408-a37e-cdc6d9d3c313",
+      "name": "Zoning",
+      "description": {
+        "content": "Zoning lookups by parcel, address, or geometry",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3cd9498-e5ce-4f01-ac3f-dffb3b869454",
+          "name": "Get zoning by parcel ID",
+          "request": {
+            "name": "Get zoning by parcel ID",
+            "description": {},
+            "url": {
+              "path": [
+                "zoning",
+                "us",
+                "parcel",
+                ":parcelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parcelId",
+                  "description": "(Required) LightBox parcel identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78d2c430-1ea0-4a5b-89d9-4a3a4a5ce683",
+              "name": "Zoning attributes for the parcel",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zoning",
+                    "us",
+                    "parcel",
+                    ":parcelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parcelId",
+                      "description": "(Required) LightBox parcel identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"parcelId\": \"string\",\n  \"address\": \"string\",\n  \"records\": [\n    {\n      \"zoneCode\": \"string\",\n      \"zoneDescription\": \"string\",\n      \"zoneType\": \"string\",\n      \"zoneSubType\": \"string\",\n      \"municipality\": \"string\",\n      \"county\": \"string\",\n      \"state\": \"string\",\n      \"allowedUses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"setbacks\": {\n        \"front\": 191.20081245895483,\n        \"rear\": 1643.937046565721,\n        \"side\": 5457.907524264173\n      },\n      \"floorAreaRatio\": 298.226772814264,\n      \"maxBuildingHeight\": 3594.414811155393,\n      \"maxLotCoverage\": 6896.5219337549115,\n      \"minLotSize\": 9277.42920709357\n    },\n    {\n      \"zoneCode\": \"string\",\n      \"zoneDescription\": \"string\",\n      \"zoneType\": \"string\",\n      \"zoneSubType\": \"string\",\n      \"municipality\": \"string\",\n      \"county\": \"string\",\n      \"state\": \"string\",\n      \"allowedUses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"setbacks\": {\n        \"front\": 6562.542873657262,\n        \"rear\": 2409.3211075000663,\n        \"side\": 3843.2984522807947\n      },\n      \"floorAreaRatio\": 2743.849105047036,\n      \"maxBuildingHeight\": 5694.036660438776,\n      \"maxLotCoverage\": 8889.997712645969,\n      \"minLotSize\": 1194.8261996860642\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d4fc1ff-9607-4862-a73c-c13eee8184be",
+          "name": "Get zoning by address",
+          "request": {
+            "name": "Get zoning by address",
+            "description": {},
+            "url": {
+              "path": [
+                "zoning",
+                "us",
+                "address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) Full street address"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0375cc88-5253-443c-a371-cce45bc5f436",
+              "name": "Zoning attributes for the address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zoning",
+                    "us",
+                    "address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"parcelId\": \"string\",\n  \"address\": \"string\",\n  \"records\": [\n    {\n      \"zoneCode\": \"string\",\n      \"zoneDescription\": \"string\",\n      \"zoneType\": \"string\",\n      \"zoneSubType\": \"string\",\n      \"municipality\": \"string\",\n      \"county\": \"string\",\n      \"state\": \"string\",\n      \"allowedUses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"setbacks\": {\n        \"front\": 6066.079335103276,\n        \"rear\": 6588.416879971624,\n        \"side\": 2560.5084631549466\n      },\n      \"floorAreaRatio\": 4724.5856186475885,\n      \"maxBuildingHeight\": 8034.9939848546155,\n      \"maxLotCoverage\": 2325.31123147941,\n      \"minLotSize\": 9443.74013901985\n    },\n    {\n      \"zoneCode\": \"string\",\n      \"zoneDescription\": \"string\",\n      \"zoneType\": \"string\",\n      \"zoneSubType\": \"string\",\n      \"municipality\": \"string\",\n      \"county\": \"string\",\n      \"state\": \"string\",\n      \"allowedUses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"setbacks\": {\n        \"front\": 3153.470869533419,\n        \"rear\": 8345.523172904506,\n        \"side\": 9412.86454107347\n      },\n      \"floorAreaRatio\": 4727.132722394255,\n      \"maxBuildingHeight\": 5742.605598588665,\n      \"maxLotCoverage\": 9624.017355945525,\n      \"minLotSize\": 8879.672274509638\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8b7f8d6-a7a6-4bbd-8a44-c379cdcb5f68",
+          "name": "Get zoning by geometry",
+          "request": {
+            "name": "Get zoning by geometry",
+            "description": {},
+            "url": {
+              "path": [
+                "zoning",
+                "us",
+                "geometry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"geometry\": {\n    \"type\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebfc2def-8c1d-4856-8a23-611ea75739c2",
+              "name": "Zoning attributes for the supplied geometry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zoning",
+                    "us",
+                    "geometry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"geometry\": {\n    \"type\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"parcelId\": \"string\",\n  \"address\": \"string\",\n  \"records\": [\n    {\n      \"zoneCode\": \"string\",\n      \"zoneDescription\": \"string\",\n      \"zoneType\": \"string\",\n      \"zoneSubType\": \"string\",\n      \"municipality\": \"string\",\n      \"county\": \"string\",\n      \"state\": \"string\",\n      \"allowedUses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"setbacks\": {\n        \"front\": 6066.079335103276,\n        \"rear\": 6588.416879971624,\n        \"side\": 2560.5084631549466\n      },\n      \"floorAreaRatio\": 4724.5856186475885,\n      \"maxBuildingHeight\": 8034.9939848546155,\n      \"maxLotCoverage\": 2325.31123147941,\n      \"minLotSize\": 9443.74013901985\n    },\n    {\n      \"zoneCode\": \"string\",\n      \"zoneDescription\": \"string\",\n      \"zoneType\": \"string\",\n      \"zoneSubType\": \"string\",\n      \"municipality\": \"string\",\n      \"county\": \"string\",\n      \"state\": \"string\",\n      \"allowedUses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"setbacks\": {\n        \"front\": 3153.470869533419,\n        \"rear\": 8345.523172904506,\n        \"side\": 9412.86454107347\n      },\n      \"floorAreaRatio\": 4727.132722394255,\n      \"maxBuildingHeight\": 5742.605598588665,\n      \"maxLotCoverage\": 9624.017355945525,\n      \"minLotSize\": 8879.672274509638\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.lightboxre.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b65261dd-084f-421a-9379-c80241195ead",
+    "name": "LightBox Zoning API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Parcel-level zoning data for commercial real estate, builder, and developer markets. Returns zoning districts, allowed uses, setback requirements, floor area ratio (FAR), building height limits, and other zoning attributes for a given parcel or location.\n\nContact Support:\n Name: LightBox",
+      "type": "text/plain"
+    }
+  }
+}
