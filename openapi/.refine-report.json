@@ -1,0 +1,14 @@
+{
+  "provider": "lightbox-zoning-api",
+  "sources": [
+    "lightbox-zoning-api-zoning-api-openapi.yml"
+  ],
+  "outputs": [
+    "lightbox-zoning-api-zoning-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
