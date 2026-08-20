@@ -23,6 +23,14 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/lightbox-zoning-api.png
 tags:
   - Zoning
+  - Real-Estate
+  - CRE
+  - Property
+  - Parcels
+  - Geospatial
+  - Land Use
+tags_raw:
+  - Zoning
   - Real Estate
   - CRE
   - Property
